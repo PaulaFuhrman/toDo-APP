@@ -1,0 +1,546 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  --color: rgb(200, 197, 197);
+  --orange: #fb6102f3;
+  --orange-hover: #c44f07f1;
+  --green: #409b40;
+  --green-second: #234a23;
+  --purple: #b91dc7;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+body {
+  height: 100vh;
+  background-image: url("../assets/background-image.jpg");
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .app {
+  height: 90vh;
+  width: 90vw;
+  background-color: rgba(0, 0, 0, 0.727);
+  color: var(--green);
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+}
+
+body .app header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+body .app header h1 {
+  font-size: 20px;
+  background: -webkit-gradient(linear, left top, right top, from(var(--orange)), to(var(--purple)));
+  background: linear-gradient(to right, var(--orange) 0%, var(--purple) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+body .app main {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .app main .categories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 5px 0;
+}
+
+body .app main .categories button {
+  margin: 0 5px;
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 2px;
+  background-color: transparent;
+  color: var(--green);
+  border: none;
+}
+
+body .app main .categories button p {
+  margin: 0;
+}
+
+body .app main .categories button .fa-solid {
+  font-size: 26px;
+}
+
+body .app main .categories button.active {
+  color: var(--orange);
+  font-weight: 500;
+}
+
+body .app main .categories button:hover {
+  color: var(--orange-hover);
+  cursor: pointer;
+}
+
+body .app main .todo-list {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-top: 10px;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  overflow-y: auto;
+}
+
+body .app main .todo-list .tasks > div {
+  display: none;
+}
+
+body .app main .todo-list .tasks > div.active {
+  display: block;
+}
+
+body .app main .todo-list .tasks h3 {
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-top: 15px;
+  background: -webkit-gradient(linear, left top, right top, from(var(--orange)), to(var(--purple)));
+  background: linear-gradient(to right, var(--orange) 0%, var(--purple) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body .app main .todo-list .tasks ul {
+  padding: 0;
+}
+
+body .app main .todo-list .tasks ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style: none;
+  margin-top: 2px;
+  font-weight: bold;
+  width: 100%;
+  font-size: 13px;
+}
+
+body .app main .todo-list .tasks ul li .task-element {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+body .app main .todo-list .tasks ul li .task-element .note-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 5px;
+  width: 75%;
+}
+
+body .app main .todo-list .tasks ul li .task-element .note-name p {
+  margin: 0 10px;
+  padding: 3px;
+}
+
+body .app main .todo-list .tasks ul li .task-element .note-name button {
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border: none;
+}
+
+body .app main .todo-list .tasks ul li .task-element .tools button {
+  margin: 0 2px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: transparent;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+body .app main .todo-list .tasks ul li .multi-collapse {
+  margin: 0 10px;
+  padding: 3px;
+  font-size: 13px;
+  color: var(--orange);
+}
+
+body .app main .new-task-form {
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  margin-top: 5px;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+body .app main .new-task-form #go-back {
+  font-size: 20px;
+}
+
+body .app main .new-task-form .newtask-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 5px;
+}
+
+body .app main .new-task-form .newtask-title h2,
+body .app main .new-task-form .newtask-title .fa-clipboard-list {
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+body .app main .new-task-form .newtask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+body .app main .new-task-form .newtask #task-note {
+  min-height: 80px;
+  max-height: 100px;
+}
+
+body .app main .new-task-form .newtask label {
+  color: var(--green);
+  font-weight: bold;
+}
+
+body .app main .new-task-form .newtask input,
+body .app main .new-task-form .newtask textarea {
+  background-color: #2045208d;
+  color: var(--color);
+  padding: 5px;
+  font-size: 13px;
+  border: none;
+  letter-spacing: 1px;
+  outline: none;
+  border-radius: 7px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+body .app main .new-task-form .error {
+  text-align: center;
+  text-transform: uppercase;
+  color: red;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+body .app .popup-edit {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  min-width: 80%;
+  background-color: rgba(8, 8, 8, 0.865);
+  border: 2px solid var(--green);
+  padding: 20px;
+  border-radius: 7px;
+}
+
+body .app .popup-edit .fa-xmark {
+  text-align: end;
+  font-size: 25px;
+}
+
+body .app .popup-edit h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+body .app .popup-edit hr {
+  height: 3px;
+  margin-bottom: 20px;
+}
+
+body .app .popup-edit .edit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .app .popup-edit .edit textarea {
+  min-height: 50px;
+  max-height: 150px;
+}
+
+body .app .popup-edit .edit label {
+  font-weight: bold;
+}
+
+body .app .popup-edit .edit textarea,
+body .app .popup-edit .edit input {
+  background-color: #2045208d;
+  color: var(--color);
+  padding: 10px;
+  font-size: 13px;
+  border: none;
+  letter-spacing: 1px;
+  outline: none;
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+body .app .popup-delete {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(8, 8, 8, 0.865);
+  border: 2px solid var(--green);
+  padding: 10px;
+  border-radius: 7px;
+  min-width: 80%;
+}
+
+body .app .popup-delete h4 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+body .app .popup-delete p {
+  font-size: 16px;
+}
+
+body .app footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+body .app footer #add-task {
+  font-size: 30px;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+hr {
+  background-image: -webkit-gradient(linear, left top, right top, from(var(--purple)), color-stop(var(--orange)), to(var(--green)));
+  background-image: linear-gradient(to right, var(--purple), var(--orange), var(--green));
+  margin: 0;
+}
+
+.visible {
+  -webkit-transition: 0.15s ease-in-out;
+  transition: 0.15s ease-in-out;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.hidden {
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  -webkit-transform: translateX(200%);
+          transform: translateX(200%);
+}
+
+.blur {
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.completed {
+  color: #575353;
+  text-decoration: line-through;
+  font-style: italic;
+  background-color: rgba(14, 14, 14, 0.581);
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+}
+
+.icon {
+  color: var(--green);
+}
+
+.icon:hover {
+  color: var(--orange-hover);
+  cursor: pointer;
+}
+
+.btn {
+  min-width: 100px;
+  max-width: 150px;
+  margin: 10px auto;
+  padding: 5px;
+  color: var(--color);
+  background-color: var(--green);
+  border-radius: 7px;
+  border: none;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background: var(--orange-hover);
+  color: var(--color);
+}
+
+@media (min-width: 576px) {
+  body .app header h1 {
+    font-size: 36px;
+  }
+  body .app main .categories {
+    margin: 20px;
+  }
+  body .app main .categories button {
+    font-size: 26px;
+  }
+  body .app main .categories button .fa-solid {
+    font-size: 36px;
+  }
+  body .app main .todo-list {
+    padding: 10px;
+  }
+  body .app main .todo-list .tasks h3 {
+    font-size: 26px;
+  }
+  body .app main .todo-list .tasks ul li {
+    font-size: 16px;
+  }
+  body .app main .todo-list .tasks ul li .note-name p {
+    word-break: break-word;
+  }
+  body .app main .todo-list .tasks ul li .multi-collapse {
+    font-size: 16px;
+  }
+  body .app main .new-task-form {
+    padding: 10px;
+  }
+  body .app main .new-task-form #go-back {
+    font-size: 30px;
+  }
+  body .app main .new-task-form .newtask-title {
+    margin: 20px;
+  }
+  body .app main .new-task-form .newtask-title h2,
+  body .app main .new-task-form .newtask-title .fa-clipboard-list {
+    font-size: 40px;
+  }
+  body .app main .new-task-form .newtask #task-note {
+    min-height: 150px;
+    max-height: 200px;
+  }
+  body .app main .new-task-form .newtask input,
+  body .app main .new-task-form .newtask textarea {
+    padding: 15px;
+    margin-bottom: 30px;
+  }
+  body .app main .new-task-form #btn-add {
+    width: 300px;
+    padding: 10px;
+  }
+  body .app .popup-delete {
+    min-width: 40%;
+    padding: 20px;
+  }
+  body .app .popup-delete h4 {
+    font-size: 30px;
+  }
+  body .app .popup-delete p {
+    font-size: 24px;
+  }
+  body .app footer #add-task {
+    font-size: 50px;
+  }
+}
+/*# sourceMappingURL=scss.css.map */

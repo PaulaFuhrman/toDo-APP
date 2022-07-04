@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --color: rgb(200, 197, 197);
+    --orange: #fb6102f3;
+    --orange-hover: #c44f07f1;
+    --green: #409b40;
+    --green-second: #234a23;
+    --purple: #b91dc7;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+body {
+    height: 100vh;
+    background-image: url("../assets/background-image.jpg");
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .app {
+        height: 90vh;
+        width: 90vw;
+        background-color: rgba(0, 0, 0, 0.727);
+        color: var(--green);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        header {
+            display: flex;
+            justify-content: end;
+
+            h1 {
+                font-size: 20px;
+                background: linear-gradient(to right, var(--orange) 0%, var(--purple) 100%);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                letter-spacing: 2px;
+                font-weight: bold;
+
+            }
+        }
+
+        main {
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            flex: 1;
+            display: flex;
+
+            .categories {
+                display: flex;
+                justify-content: center;
+                margin: 5px 0;
+
+                button {
+                    margin: 0 5px;
+                    text-align: center;
+                    font-size: 15px;
+                    letter-spacing: 2px;
+                    background-color: transparent;
+                    color: var(--green);
+                    border: none;
+
+                    p {
+                        margin: 0;
+                    }
+
+                    .fa-solid {
+                        font-size: 26px;
+                    }
+
+                    &.active {
+                        color: var(--orange);
+                        font-weight:500;
+                    }
+                }
+
+                button:hover {
+                    color: var(--orange-hover);
+                    cursor: pointer;
+                }
+            }
+
+            .todo-list {
+                flex: 1;
+                margin-top: 10px;
+                transition: 0.5s ease-in-out;
+                overflow-y: auto;
+
+                .tasks {
+                    >div {
+                        display: none;
+
+                        &.active {
+                            display: block;
+                        }
+                    }
+
+                    h3 {
+                        font-size: 16px;
+                        text-align: center;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        font-weight: bold;
+                        margin-top: 15px;
+                        background: linear-gradient(to right, var(--orange) 0%, var(--purple) 100%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+
+                    ul {
+                        padding: 0;
+
+                        li {
+                            display: flex;
+                            flex-direction: column;
+                            list-style: none;
+                            margin-top: 2px;
+                            font-weight: bold;
+                            width: 100%;
+                            font-size: 13px;
+
+                            .task-element {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                width: 100%;
+
+                                .note-name {
+                                    display: flex;
+                                    margin-right: 5px;
+                                    width: 75%;
+
+                                    p {
+                                        margin: 0 10px;
+                                        padding: 3px;
+                                    }
+
+                                    button {
+                                        background-color: transparent;
+                                        cursor: pointer;
+                                        transition: 0.3s;
+                                        border: none;
+                                    }
+                                }
+
+                                .tools {
+                                    button {
+                                        margin: 0 2px;
+                                        transition: 0.3s;
+                                        background-color: transparent;
+                                        align-items: center;
+                                        border: none;
+                                        flex-wrap: nowrap;
+                                    }
+                                }
+
+                            }
+
+                            .multi-collapse {
+                                margin: 0 10px;
+                                padding: 3px;
+                                font-size: 13px;
+                                color: var(--orange);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .new-task-form {
+                position: absolute;
+                left: -100%;
+                width: 100%;
+                margin-top: 5px;
+                transition: 0.5s ease-in-out;
+
+                #go-back {
+                    font-size: 20px;
+                }
+
+                .newtask-title {
+                    display: flex;
+                    justify-content: center;
+                    margin: 5px;
+
+                    h2,
+                    .fa-clipboard-list {
+                        padding: 5px;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                }
+
+                .newtask {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    #task-note {
+                        min-height: 80px;
+                        max-height: 100px;
+                    }
+
+                    label {
+                        color: var(--green);
+                        font-weight: bold;
+                    }
+
+                    input,
+                    textarea {
+                        background-color: #2045208d;
+                        color: var(--color);
+                        padding: 5px;
+                        font-size: 13px;
+                        border: none;
+                        letter-spacing: 1px;
+                        outline: none;
+                        border-radius: 7px;
+                        margin-bottom: 15px;
+                        font-weight: bold;
+                    }
+                }
+
+                .error {
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: red;
+                    font-weight: bold;
+                    letter-spacing: 2px;
+                    margin: 0;
+                }
+            }
+        }
+
+        .popup-edit {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 80%;
+            background-color: rgba(8, 8, 8, 0.865);
+            border: 2px solid var(--green);
+            padding: 20px;
+            border-radius: 7px;
+
+            .fa-xmark {
+                text-align: end;
+                font-size: 25px;
+            }
+
+            h2 {
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            hr {
+                height: 3px;
+                margin-bottom: 20px;
+            }
+
+            .edit {
+                display: flex;
+                flex-direction: column;
+
+                textarea {
+                    min-height: 50px;
+                    max-height: 150px;
+                }
+
+                label {
+                    font-weight: bold;
+                }
+
+                textarea,
+                input {
+                    background-color: #2045208d;
+                    color: var(--color);
+                    padding: 10px;
+                    font-size: 13px;
+                    border: none;
+                    letter-spacing: 1px;
+                    outline: none;
+                    border-radius: 7px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .popup-delete {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            background-color: rgba(8, 8, 8, 0.865);
+            border: 2px solid var(--green);
+            padding: 10px;
+            border-radius: 7px;
+            min-width: 80%;
+
+            h4 {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+        footer {
+            display: flex;
+            justify-content: flex-end;
+
+            #add-task {
+                font-size: 30px;
+                transition: 0.5s ease-in-out;
+            }
+
+
+        }
+    }
+}
+
+hr {
+    background-image: linear-gradient(to right, var(--purple), var(--orange), var(--green));
+    margin: 0;
+}
+
+.visible {
+    transition: 0.15s ease-in-out;
+    transform: translateX(100%);
+}
+
+.hidden {
+    transition: 0.5s ease-in-out;
+    transform: translateX(200%);
+}
+
+.blur {
+    filter: blur(1px);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.completed {
+    color: rgb(87, 83, 83);
+    text-decoration: line-through;
+    font-style: italic;
+    background-color: rgba(14, 14, 14, 0.581);
+    filter: blur(1px);
+}
+
+.icon {
+    color: var(--green);
+
+    &:hover {
+        color: var(--orange-hover);
+        cursor: pointer;
+    }
+}
+
+.btn {
+    min-width: 100px;
+    max-width: 150px;
+    margin: 10px auto;
+    padding: 5px;
+    color: var(--color);
+    background-color: var(--green);
+    border-radius: 7px;
+    border: none;
+    text-transform: uppercase;
+
+    &:hover {
+        background: var(--orange-hover);
+        color: var(--color);
+    }
+}
+
+@media (min-width: 576px) {
+    body .app {
+        header h1 {
+            font-size: 36px;
+        }
+
+        main {
+            .categories {
+                margin: 20px;
+
+                button {
+                    font-size: 26px;
+
+                    .fa-solid {
+                        font-size: 36px;
+                    }
+                }
+            }
+
+            .todo-list {
+                padding: 10px;
+
+                .tasks {
+                    h3 {
+                        font-size: 26px;
+                    }
+
+                    ul li {
+                        font-size: 16px;
+
+                        .note-name p {
+                            word-break: break-word;
+                        }
+
+                        .multi-collapse {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .new-task-form {
+                padding: 10px;
+
+                #go-back {
+                    font-size: 30px;
+                }
+
+                .newtask-title {
+                    margin: 20px;
+
+                    h2,
+                    .fa-clipboard-list {
+                        font-size: 40px;
+                    }
+                }
+
+                .newtask {
+                    #task-note {
+                        min-height: 150px;
+                        max-height: 200px;
+                    }
+
+                    input,
+                    textarea {
+                        padding: 15px;
+                        margin-bottom: 30px;
+                    }
+                }
+
+                #btn-add {
+                    width: 300px;
+                    padding: 10px;
+                }
+            }
+        }
+
+        .popup-delete {
+            min-width: 40%;
+            padding: 20px;
+
+            h4 {
+                font-size: 30px;
+            }
+
+            p {
+                font-size: 24px;
+            }
+        }
+
+        footer {
+            #add-task {
+                font-size: 50px;
+            }
+        }
+    }
+}
